@@ -25,7 +25,7 @@ public class Race extends JFrame {
         backLabel.setBounds(0,0,1440, 700);
         add(backLabel);
 
-        ImageIcon charImage = new ImageIcon("src/img/carfiks.png");
+        ImageIcon charImage = new ImageIcon(Mobil.getGambar());
         charLab = new JLabel(charImage);
         setCharX(0);
         charLab.setBounds(0,520, 107,50);

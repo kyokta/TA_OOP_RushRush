@@ -12,9 +12,15 @@ public class Mobil extends JFrame implements Kendaraan{
     private double kecepatanMaksimal=130;
     private double kecepatan;
 
+    private static String gambar = "src/img/carfiks.png";
+
+
     // for gui
     public Mobil(){};
 
+    public static String getGambar() {
+        return gambar;
+    }
 
     public void setKecepatan(double kecepatan) {
         this.kecepatan = kecepatan;
