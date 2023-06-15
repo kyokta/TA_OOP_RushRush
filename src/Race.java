@@ -1,11 +1,13 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Vehicles.*;
+import Vehicles.Mobil.Mobil;
+import Vehicles.Mobil.Mobil_3;
 
 public class Race extends JFrame {
     private JLabel backLabel;
     private JLabel charLab;
-
     private JTextArea alert;
     private  JButton button;
     private  JButton button1;
@@ -13,7 +15,7 @@ public class Race extends JFrame {
     private  int charX;
     private double kec=2;
 
-    Mobil mobil = new Mobil();
+    Mobil_3 mobil = new Mobil_3();
     public Race(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1440, 700);
@@ -25,7 +27,7 @@ public class Race extends JFrame {
         backLabel.setBounds(0,0,1440, 700);
         add(backLabel);
 
-        ImageIcon charImage = new ImageIcon(Mobil.getGambar());
+        ImageIcon charImage = new ImageIcon(mobil.getGambar());
         charLab = new JLabel(charImage);
         setCharX(0);
         charLab.setBounds(0,520, 107,50);
@@ -51,7 +53,7 @@ public class Race extends JFrame {
 
         JTextArea speedMax = new JTextArea();
         speedMax.setBounds(700, 30, 200, 20);
-        speedMax.setText("kecepatan maksimal 130 km/jam");
+        speedMax.setText(String.valueOf(mobil.getKecepatanMaksimal()));
         backLabel.add(speedMax);
 
         setFocusable(true);
