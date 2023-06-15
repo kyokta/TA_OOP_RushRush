@@ -3,7 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vehicles.*;
 import Vehicles.Mobil.Mobil;
-import Vehicles.Mobil.Mobil_3;
+import Vehicles.Mobil.*;
+
 
 public class Race extends JFrame {
     private JLabel backLabel;
@@ -15,7 +16,7 @@ public class Race extends JFrame {
     private  int charX;
     private double kec=2;
 
-    Mobil_3 mobil = new Mobil_3();
+    Mobil_1 mobil = new Mobil_1();
     public Race(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1440, 700);
