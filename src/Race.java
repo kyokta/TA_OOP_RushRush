@@ -4,19 +4,22 @@ import java.awt.event.ActionListener;
 import Vehicles.*;
 import Vehicles.Mobil.Mobil;
 import Vehicles.Mobil.*;
-
+import Vehicles.Bus.*;
+import Vehicles.Motor.*;
+import Vehicles.Truk.*;
 
 public class Race extends JFrame {
     private JLabel backLabel;
     private JLabel charLab;
-    private JTextArea alert;
+    private JLabel alert;
     private  JButton button;
     private  JButton button1;
     private  JTextField text;
     private  int charX;
     private double kec=2;
 
-    Mobil_1 mobil = new Mobil_1();
+    Bus_4 mobil = new Bus_4();
+
     public Race(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1440, 700);
@@ -48,13 +51,14 @@ public class Race extends JFrame {
         backLabel.add(button1);
         setUpSpeed();
 
-        alert = new JTextArea();
+        alert = new JLabel();
         alert.setBounds(1300, 30, 130, 20);
         backLabel.add(alert);
 
-        JTextArea speedMax = new JTextArea();
+        JLabel speedMax = new JLabel();
         speedMax.setBounds(700, 30, 200, 20);
-        speedMax.setText(String.valueOf(mobil.getKecepatanMaksimal()));
+        String x = String.valueOf(mobil.getKecepatanMaksimal());
+        speedMax.setText("Kecepatan Maksimal: " + x);
         backLabel.add(speedMax);
 
         setFocusable(true);

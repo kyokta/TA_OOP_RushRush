@@ -41,8 +41,8 @@ public class Truk extends JFrame implements Kendaraan {
 
     @Override
     public boolean tambahKecepatan(double tambahKecepatan) {
-        if (kecepatanDefault + tambahKecepatan <= kecepatanMaksimal) {
-            this.kecepatan = kecepatanDefault + tambahKecepatan;
+        if (kecepatanMinimal+ tambahKecepatan <= kecepatanMaksimal) {
+            this.kecepatan = kecepatanMinimal + tambahKecepatan;
             return true;
         } else {
             return false;
