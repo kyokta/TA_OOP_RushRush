@@ -10,6 +10,9 @@ public class Bus extends JFrame implements Kendaraan {
     private double kecepatanMinimal=70;
     private double kecepatan;
     private static String gambar;
+    private  int y = 520;
+
+    private double kec=2;
 
     // for gui
     public Bus() {
@@ -49,5 +52,22 @@ public class Bus extends JFrame implements Kendaraan {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public double getKec() {
+        return kec;
+    }
+
+    public void setKec(double kec) {
+        this.kec = kec+kec;
     }
 }

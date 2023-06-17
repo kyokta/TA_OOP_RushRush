@@ -10,6 +10,9 @@ public class Truk extends JFrame implements Kendaraan {
     private double kecepatanMinimal=50;
     private double kecepatan;
     private static String gambar;
+    private  int y = 400;
+
+    private double kec=2;
 
     // for gui
     public Truk() {
@@ -48,4 +51,18 @@ public class Truk extends JFrame implements Kendaraan {
             return false;
         }
     }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    public double getKec() {
+        return kec;
+    }
+
+    public void setKec(double kec) {
+        this.kec = kec+kec;
+    }
+
 }

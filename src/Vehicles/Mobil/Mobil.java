@@ -11,6 +11,10 @@ public class Mobil extends JFrame implements Kendaraan {
     private double kecepatan;
     private String gambar;
 
+    private  int y = 350;
+
+    private double kec=2;
+
     // for gui
     public Mobil() {
     };
@@ -47,5 +51,17 @@ public class Mobil extends JFrame implements Kendaraan {
         } else {
             return false;
         }
+    }
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    public double getKec() {
+        return kec;
+    }
+
+    public void setKec(double kec) {
+        this.kec = kec+kec;
     }
 }
