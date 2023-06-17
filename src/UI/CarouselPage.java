@@ -1,96 +1,217 @@
 package UI;
-import java.io.File;
+import javax.swing.border.EmptyBorder;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class CarouselPage extends javax.swing.JFrame {
-//    public CarouselPage(){
-//        initComponents();
-//    }
-//    public String[] takeImage(){
-//        File f = new File(getClass().getResource("").getFile());
-//        String[] Image = f.list();
-//    }
+
+public class CarouselPage extends JFrame {
+
+    private JLabel imageLabel;
+    private String[] imagePaths = {"src/img/race1440.png","src/img/wall-sumplayer.png"};
+    private int currentIndex = 0;
+    private JPanel backgroundPanel;
+    private JLabel label_Next;
+    private JLabel label_Prev;
+    private JButton btnNewButton;
+    private JButton Pilih1;
+    private JButton Pilih2;
+    private JButton Pilih3;
+    private JButton Pilih4;
+    private JButton Pilih5;
+    private JButton Pilih6;
+    private JButton Pilih7;
+    private JButton Pilih8;
+
+
+    public CarouselPage() {
+        setTitle("Image Slider");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1440, 700);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        setContentPane(mainPanel);
+
+        // Create a panel for the background image
+        backgroundPanel = new JPanel();
+        mainPanel.add(backgroundPanel, BorderLayout.CENTER);
+
+        // Create a panel for the image slider
+        JPanel imagePanel = new JPanel();
+        imagePanel.setBounds(400, 169, 650, 400);
+        imageLabel = new JLabel();
+        backgroundPanel.setLayout(null);
+        JLabel BG_label = new JLabel();
+
+        // Create a panel for the background image baru
+        ImageIcon imageIcon1 = new ImageIcon("src/img/vehicles-menu.jpeg");
+        Image image2 = imageIcon1.getImage().getScaledInstance(1440, 700, Image.SCALE_SMOOTH);
+        imageIcon1 = new ImageIcon(image2);
+        BG_label.setIcon(imageIcon1);
+        BG_label.setHorizontalAlignment(SwingConstants.CENTER);
+        BG_label.setVerticalAlignment(SwingConstants.CENTER);
+        BG_label.setBounds(0, 0, 1370, 661);
+        backgroundPanel.add(BG_label);
+
+
+        //tampil awal
+        ImageIcon imageIcon = new ImageIcon(imagePaths[0]);
+        Image image = imageIcon.getImage().getScaledInstance(650, 400, Image.SCALE_DEFAULT);
+        imageIcon = new ImageIcon(image);
+
+        imageLabel.setIcon(imageIcon);
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        imageLabel.setVerticalAlignment(SwingConstants.CENTER);
+        //----
+
+        //Tombol Dalam label-------------
+        Pilih1 = new JButton("Pilih1");
+        Pilih1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih1.setBounds(50, 144, 100, 40);
+        imageLabel.add(Pilih1);
+
+        Pilih2 = new JButton("Pilih2");
+        Pilih2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih2.setBounds(200, 144, 100, 40);
+        imageLabel.add(Pilih2);
+
+        Pilih3 = new JButton("Pilih3");
+        Pilih3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih3.setBounds(350, 144, 100, 40);
+        imageLabel.add(Pilih3);
+
+        Pilih4 = new JButton("Pilih4");
+        Pilih4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih4.setBounds(500, 144, 100, 40);
+        imageLabel.add(Pilih4);
+
+
+        Pilih5 = new JButton("Pilih5");
+        Pilih5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih5.setBounds(50, 325, 100, 40);
+        imageLabel.add(Pilih5);
+
+        Pilih6 = new JButton("Pilih6");
+        Pilih2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih6.setBounds(200, 325, 100, 40);
+        imageLabel.add(Pilih6);
+
+        Pilih7 = new JButton("Pilih7");
+        Pilih7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih7.setBounds(350, 325, 100, 40);
+        imageLabel.add(Pilih7);
+
+        Pilih8 = new JButton("Pilih8");
+        Pilih8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
+        Pilih8.setBounds(500, 325, 100, 40);
+        imageLabel.add(Pilih8);
+
+
+        //---
+
+
+        imagePanel.add(imageLabel);
+        BG_label.add(imagePanel);
+        label_Next = new JLabel();
+        label_Next.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                currentIndex++;
+                if (currentIndex >= imagePaths.length) {
+                    currentIndex = 0;
+                }
+                updateImage();
+            }
+        });
+
+        label_Next.setBounds(1140, 321, 150, 100);
+        ImageIcon imageIconNext = new ImageIcon("src/img/right-arrow.png");
+        Image imageNext = imageIconNext.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+        imageIconNext = new ImageIcon(imageNext);
+        label_Next.setIcon(imageIconNext);
+        label_Next.setHorizontalAlignment(SwingConstants.CENTER);
+        label_Next.setVerticalAlignment(SwingConstants.CENTER);
+        BG_label.add(label_Next);
+
+        label_Prev = new JLabel();
+        label_Prev.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = imagePaths.length - 1;
+                }
+                updateImage();
+            }
+        });
+        label_Prev.setBounds(169, 321, 150, 100);
+        ImageIcon imageIconPrev = new ImageIcon("src/img/left-arrow.png");
+        Image imagePrev = imageIconPrev.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+        imageIconPrev = new ImageIcon(imagePrev);
+        label_Prev.setIcon(imageIconPrev);
+        label_Prev.setHorizontalAlignment(SwingConstants.CENTER);
+        label_Prev.setVerticalAlignment(SwingConstants.CENTER);
+        BG_label.add(label_Prev);
+    }
+
+    private void updateImage() {
+        ImageIcon imageIcon = new ImageIcon(imagePaths[currentIndex]);
+        Image image = imageIcon.getImage().getScaledInstance(650, 400, Image.SCALE_DEFAULT);
+        imageIcon = new ImageIcon(image);
+        imageLabel.setIcon(imageIcon);
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        imageLabel.setVerticalAlignment(SwingConstants.CENTER);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+
+            @Override
+            public void run() {
+                CarouselPage imageSlider = new CarouselPage();
+                imageSlider.setVisible(true);
+            }
+        });
+    }
 }
-
-//import javax.swing.*;
-//import java.awt.*;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-//
-//public class CarouselPage extends JFrame {
-//    private JPanel backgroundPanel;
-//    private JPanel carouselPanel;
-//    private CardLayout cardLayout;
-//    private JButton previousButton;
-//    private JButton nextButton;
-//    private int currentPageIndex;
-//
-//    private Color[] pageColors = {
-//            Color.RED,
-//            Color.GREEN,
-//            Color.BLUE
-//    };
-//
-//    public CarouselPage() {
-//        currentPageIndex = 0;
-//
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setTitle("Carousel");
-//        setPreferredSize(new Dimension(600, 400));
-//
-//        backgroundPanel = new JPanel();
-//        backgroundPanel.setBackground(Color.BLACK);
-//        add(backgroundPanel, BorderLayout.CENTER);
-//
-//        carouselPanel = new JPanel(new CardLayout());
-//        carouselPanel.setOpaque(false);
-//        backgroundPanel.add(carouselPanel);
-//
-//        for (Color color : pageColors) {
-//            JPanel pagePanel = new JPanel();
-//            pagePanel.setBackground(color);
-//            carouselPanel.add(pagePanel);
-//        }
-//
-//        previousButton = new JButton("Previous");
-//        nextButton = new JButton("Next");
-//
-//        previousButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                currentPageIndex = (currentPageIndex - 1 + pageColors.length) % pageColors.length;
-//                cardLayout.previous(carouselPanel);
-//            }
-//        });
-//
-//        nextButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                currentPageIndex = (currentPageIndex + 1) % pageColors.length;
-//                cardLayout.next(carouselPanel);
-//            }
-//        });
-//
-//        JPanel buttonPanel = new JPanel();
-//        buttonPanel.add(previousButton);
-//        buttonPanel.add(nextButton);
-//        add(buttonPanel, BorderLayout.SOUTH);
-//
-//        cardLayout = (CardLayout) carouselPanel.getLayout();
-//        cardLayout.show(carouselPanel, String.valueOf(currentPageIndex));
-//    }
-//
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                CarouselPage carouselPage = new CarouselPage();
-//                carouselPage.pack();
-//                carouselPage.setVisible(true);
-//            }
-//        });
-//    }
-//}
-
 
 
 
