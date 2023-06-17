@@ -1,4 +1,5 @@
 package UI;
+
 import javax.swing.border.EmptyBorder;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,12 +13,14 @@ import java.awt.event.MouseEvent;
 public class CarouselPage extends JFrame {
 
     private JLabel imageLabel;
-    private String[] imagePaths = {"src/img/race1440.png","src/img/wall-sumplayer.png"};
+    private String[] imagePaths = {"src/Image/race1.png","src/Image/race2.png"};
     private int currentIndex = 0;
     private JPanel backgroundPanel;
     private JLabel label_Next;
     private JLabel label_Prev;
     private JButton btnNewButton;
+    private int indexTombolBantu=8; //Baru
+    private int indexTombolTekan=0;//Baru
     private JButton Pilih1;
     private JButton Pilih2;
     private JButton Pilih3;
@@ -38,8 +41,20 @@ public class CarouselPage extends JFrame {
         setContentPane(mainPanel);
 
         // Create a panel for the background image
-        backgroundPanel = new JPanel();
+        backgroundPanel = new JPanel()
+//        {
+//           @Override
+//           protected void paintComponent(Graphics g) {
+//               super.paintComponent(g);
+//               ImageIcon backgroundIcon = new ImageIcon("D://Install/eclipse/Coba GUI/src/Tampil/png.png");
+//                Image background = backgroundIcon.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+//               g.drawImage(background, 0, 0, null);
+//            }
+//        }
+        ;
         mainPanel.add(backgroundPanel, BorderLayout.CENTER);
+
+
 
         // Create a panel for the image slider
         JPanel imagePanel = new JPanel();
@@ -49,8 +64,8 @@ public class CarouselPage extends JFrame {
         JLabel BG_label = new JLabel();
 
         // Create a panel for the background image baru
-        ImageIcon imageIcon1 = new ImageIcon("src/img/vehicles-menu.jpeg");
-        Image image2 = imageIcon1.getImage().getScaledInstance(1440, 700, Image.SCALE_SMOOTH);
+        ImageIcon imageIcon1 = new ImageIcon("src/img/race1440.png");
+        Image image2 = imageIcon1.getImage().getScaledInstance(1370, 661, Image.SCALE_SMOOTH);
         imageIcon1 = new ImageIcon(image2);
         BG_label.setIcon(imageIcon1);
         BG_label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -73,24 +88,33 @@ public class CarouselPage extends JFrame {
         Pilih1 = new JButton("Pilih1");
         Pilih1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-8;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
         Pilih1.setBounds(50, 144, 100, 40);
         imageLabel.add(Pilih1);
 
+
         Pilih2 = new JButton("Pilih2");
         Pilih2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-7;//Baru
+                System.out.println(indexTombolTekan);//Baru
+
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
         Pilih2.setBounds(200, 144, 100, 40);
         imageLabel.add(Pilih2);
 
+
         Pilih3 = new JButton("Pilih3");
         Pilih3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-6;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -100,6 +124,8 @@ public class CarouselPage extends JFrame {
         Pilih4 = new JButton("Pilih4");
         Pilih4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-5;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -110,6 +136,8 @@ public class CarouselPage extends JFrame {
         Pilih5 = new JButton("Pilih5");
         Pilih5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-4;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -117,8 +145,10 @@ public class CarouselPage extends JFrame {
         imageLabel.add(Pilih5);
 
         Pilih6 = new JButton("Pilih6");
-        Pilih2.addActionListener(new ActionListener() {
+        Pilih6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-3;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -128,8 +158,11 @@ public class CarouselPage extends JFrame {
         Pilih7 = new JButton("Pilih7");
         Pilih7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-2;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
+
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
         Pilih7.setBounds(350, 325, 100, 40);
         imageLabel.add(Pilih7);
@@ -137,6 +170,8 @@ public class CarouselPage extends JFrame {
         Pilih8 = new JButton("Pilih8");
         Pilih8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                indexTombolTekan=indexTombolBantu-1;//Baru
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -157,13 +192,21 @@ public class CarouselPage extends JFrame {
                 if (currentIndex >= imagePaths.length) {
                     currentIndex = 0;
                 }
+                //Baru=======================================================================
+                if(currentIndex==0) {
+                    indexTombolBantu=8;
+                }else {
+                    indexTombolBantu=indexTombolBantu*(currentIndex+1);
+                }
+                //==========================================================================
+
                 updateImage();
             }
         });
 
         label_Next.setBounds(1140, 321, 150, 100);
         ImageIcon imageIconNext = new ImageIcon("src/img/right-arrow.png");
-        Image imageNext = imageIconNext.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+        Image imageNext = imageIconNext.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT);
         imageIconNext = new ImageIcon(imageNext);
         label_Next.setIcon(imageIconNext);
         label_Next.setHorizontalAlignment(SwingConstants.CENTER);
@@ -178,18 +221,31 @@ public class CarouselPage extends JFrame {
                 if (currentIndex < 0) {
                     currentIndex = imagePaths.length - 1;
                 }
+
+                //Baru=======================================================================
+                if(currentIndex==0) {
+                    indexTombolBantu=8;
+                }else {
+                    indexTombolBantu=indexTombolBantu*(currentIndex+1);
+                }
+                //==========================================================================
+
                 updateImage();
             }
         });
         label_Prev.setBounds(169, 321, 150, 100);
         ImageIcon imageIconPrev = new ImageIcon("src/img/left-arrow.png");
-        Image imagePrev = imageIconPrev.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+        Image imagePrev = imageIconPrev.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT);
         imageIconPrev = new ImageIcon(imagePrev);
         label_Prev.setIcon(imageIconPrev);
         label_Prev.setHorizontalAlignment(SwingConstants.CENTER);
         label_Prev.setVerticalAlignment(SwingConstants.CENTER);
         BG_label.add(label_Prev);
+
+
     }
+
+
 
     private void updateImage() {
         ImageIcon imageIcon = new ImageIcon(imagePaths[currentIndex]);
@@ -212,103 +268,3 @@ public class CarouselPage extends JFrame {
         });
     }
 }
-
-
-
-
-//import javax.swing.*;
-//import java.awt.*;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-//
-//public class CobaCarousol extends JFrame {
-//    private JPanel imagePanel;
-//    private JButton previousButton;
-//    private JButton nextButton;
-//    private JButton button;
-//    private int currentIndex;
-//
-//    private String[] imagePaths = {
-//            "src/img/wallp-carousel.png",
-//            "src/img/wallp-carousel.png",
-//            "src/img/wallp-carousel.png"
-//    };
-//
-//    public CobaCarousol() {
-//        currentIndex = 0;
-//
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setTitle("Image Carousel");
-//        setPreferredSize(new Dimension(1920, 700));
-//        setLayout(new BorderLayout());
-//
-//        imagePanel = new JPanel();
-//        imagePanel.setBackground(Color.BLACK);
-//        add(imagePanel, BorderLayout.CENTER);
-//
-//        previousButton = new JButton("<");
-//        previousButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
-//                updateImage();
-//            }
-//        });
-//
-//        nextButton = new JButton(">");
-//        nextButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                currentIndex = (currentIndex + 1) % imagePaths.length;
-//                updateImage();
-//            }
-//        });
-//
-//        JPanel buttonPanel = new JPanel(new BorderLayout());
-//        buttonPanel.add(previousButton, BorderLayout.WEST);
-//        buttonPanel.add(nextButton, BorderLayout.EAST);
-//        add(buttonPanel, BorderLayout.SOUTH);
-//
-//        updateImage();
-//
-//        button = new JButton();
-//        ImageIcon buttonIcon = new ImageIcon("src/img/play-button.png");
-//        button.setIcon(buttonIcon);
-//        button.setBounds(200, 50, buttonIcon.getIconWidth(), buttonIcon.getIconHeight());
-//        button.setOpaque(false);
-//        button.setContentAreaFilled(false);
-//        button.setBorderPainted(false);
-//        imagePanel.add(button);
-//    }
-//
-//    private void updateImage() {
-//        String imagePath = imagePaths[currentIndex];
-//        ImageIcon imageIcon = new ImageIcon(imagePath);
-//        Image image = imageIcon.getImage();
-//
-//        // Check if the imagePanel has been properly initialized and has non-zero dimensions
-//        if (imagePanel.getWidth() > 0 && imagePanel.getHeight() > 0) {
-//            Image scaledImage = image.getScaledInstance(imagePanel.getWidth(), imagePanel.getHeight(), Image.SCALE_SMOOTH);
-//            imageIcon = new ImageIcon(scaledImage);
-//        }
-//
-//        JLabel imageLabel = new JLabel();
-//        imageLabel.setIcon(imageIcon);
-//        imagePanel.removeAll();
-//        imagePanel.add(imageLabel);
-//        imagePanel.revalidate();
-//        imagePanel.repaint();
-//    }
-//
-//
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                CobaCarousol carouselPage = new CobaCarousol();
-//                carouselPage.pack();
-//                carouselPage.setVisible(true);
-//            }
-//        });
-//    }
-//}
