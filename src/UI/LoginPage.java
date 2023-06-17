@@ -2,6 +2,7 @@ package UI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Core.Model;
 
 public class LoginPage extends JFrame {
     private JLabel backgroundImage;
@@ -44,8 +45,17 @@ public class LoginPage extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new player();
+                Model pass = new Model();
+                String pass_now = new String(password.getPassword());
+                String pass_cur = pass.getPassword(username.getText());
+
+                if (pass_now.equals(pass_cur)) {
+                    dispose();
+                    new player();
+                } else {
+//                    System.out.println("beda");
+                    JOptionPane.showMessageDialog(null, "Login gagal! Silakan coba lagi.");
+                }
             }
         });
 
