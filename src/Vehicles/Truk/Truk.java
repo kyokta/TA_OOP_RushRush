@@ -10,7 +10,7 @@ public class Truk extends JFrame implements Kendaraan {
     private double kecepatanMinimal=50;
     private double kecepatan;
     private static String gambar;
-    private  int y = 400;
+    private  int y = 430;
 
     private double kec=2;
 

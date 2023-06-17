@@ -11,7 +11,7 @@ public class Motor extends JFrame implements Kendaraan {
     private double kecepatan;
     private static String gambar;
 
-    private  int y = 300;
+    private  int y = 340;
 
     private double kec=2;
 

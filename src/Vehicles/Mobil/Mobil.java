@@ -11,7 +11,7 @@ public class Mobil extends JFrame implements Kendaraan {
     private double kecepatan;
     private String gambar;
 
-    private  int y = 350;
+    private  int y = 600;
 
     private double kec=2;
 

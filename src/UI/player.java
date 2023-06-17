@@ -25,7 +25,6 @@ public class player extends JFrame {
         playersum.setBounds(540, 290, 450, 40);
         backgroundImage.add(playersum);
 
-
         button = new JButton();
         ImageIcon buttonIcon = new ImageIcon("src/img/play-button.png");
         button.setIcon(buttonIcon);
@@ -35,16 +34,54 @@ public class player extends JFrame {
         button.setBorderPainted(false);
         backgroundImage.add(button);
 
-
-
-        button.addActionListener(new ActionListener() {
+//        String add = playersum.getText();
+        setUpSpeed();
+//        button.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if (add=="2"){
+//                    dispose();
+//                    new Race_2();
+//                } else if (add=="3") {
+//                    dispose();
+//                    new Race_3();
+//                } else if (add=="4") {
+//                    dispose();
+//                    new Race_4();
+//                }
+//            }
+//        });
+        setVisible(true);
+    }
+    public void setUpSpeed(){
+        ActionListener btnSpeed = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new Race();
-            }
-        });
+                String add = playersum.getText();
+                if (add.equals("2")){
+                    dispose();
 
-        setVisible(true);
+
+
+
+                    new Race_2();
+                } else if (add.equals("3")) {
+                    dispose();
+
+
+
+
+
+                    new Race_3();
+                } else if (add.equals("4")) {
+                    dispose();
+                    new Race_4();
+                } else{
+                    dispose();
+                    new Race();
+                }
+            }
+        };
+        button.addActionListener(btnSpeed);
     }
 }
