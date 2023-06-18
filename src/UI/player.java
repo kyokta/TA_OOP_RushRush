@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+
 public class player extends JFrame {
     private JLabel backgroundImage;
     private JTextField playersum;
@@ -55,7 +56,8 @@ public class player extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Race_2();
+                Car2 carousel = new Car2();
+                carousel.start();
             }
         });
 
@@ -63,7 +65,8 @@ public class player extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Race_3();
+                Car3 carousel = new Car3();
+                carousel.start();
             }
         });
 
@@ -71,7 +74,8 @@ public class player extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Race_4();
+                Car4 carousel = new Car4();
+                carousel.start();
             }
         });
 

@@ -3,7 +3,6 @@ package Vehicles.Bus;
 public class Bus_2 extends Bus{
     public Bus_2() {
         super.setGambar("src/img/2.png");
-        super.setKecepatanMaksimal(100);
         super.setKec(2.5);
     }
     public void downKec(){

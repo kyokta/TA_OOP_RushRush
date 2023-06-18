@@ -5,7 +5,6 @@ import Vehicles.Truk.Truk;
 public class Truk_4 extends Truk {
     public Truk_4() {
         super.setGambar("../img/16.png");
-        super.setKecepatanMaksimal(160);
         super.setKec(3.5);
     }
     public void downKec(){

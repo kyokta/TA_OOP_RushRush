@@ -1,8 +1,19 @@
 package Vehicles;
 
+import Vehicles.Truk.Truk;
+
 public interface Kendaraan {
-//    double kecepatanDefault = 60;
-    void setKecepatanMaksimal(double kec);
-    double getKecepatanMaksimal();
-    boolean tambahKecepatan(double tambahKecepatan);
+    String gambar="x";
+
+    double kec = 2;
+    static void setGambar(String gambar){};
+    String getGambar();
+
+    int getY();
+
+    double getKec();
+
+    void setKec(double kec);
+    void downKec();
+    void upKec();
 }

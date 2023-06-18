@@ -48,12 +48,10 @@ public class LoginPage extends JFrame {
                 Model pass = new Model();
                 String pass_now = new String(password.getPassword());
                 String pass_cur = pass.getPassword(username.getText());
-
                 if (pass_now.equals(pass_cur)) {
                     dispose();
                     new player();
                 } else {
-//                    System.out.println("beda");
                     JOptionPane.showMessageDialog(null, "Login gagal! Silakan coba lagi.");
                 }
             }

@@ -2,7 +2,10 @@ package UI;
 
 import Vehicles.Bus.Bus_4;
 import Vehicles.Kendaraan;
+import Vehicles.Mobil.Mobil_1;
+import Vehicles.Mobil.Mobil_2;
 import Vehicles.Mobil.Mobil_3;
+import Vehicles.Motor.Motor_1;
 import Vehicles.Motor.Motor_2;
 import Vehicles.Truk.Truk_1;
 
@@ -14,14 +17,12 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class Race_2 extends JFrame{
+    private JLabel backLabel, charLab1, charLab2;
+    private  int charX1, charX2;
+    public static ArrayList<Integer> gorace = new ArrayList<>();
+    private Kendaraan kend1;
+    private Kendaraan kend2;
 
-    private JLabel backLabel, charLabBus,charLabTruk, charLabMotor, charLabMobil;
-    private  int charXBus, charXTruk, charXMotor, charXMobil;
-    private double kec=2;
-    private static ArrayList<Kendaraan> gorace = new ArrayList<>();
-
-    Motor_2 motor = new Motor_2();
-    Mobil_3 mobil = new Mobil_3();
 
     public Race_2(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,22 +30,27 @@ public class Race_2 extends JFrame{
         setLocationRelativeTo(null);
         setResizable(false);
 
+        ParentRace.addDict();
+
+        this.kend1 = ParentRace.dict.get(gorace.get(0));
+        this.kend2 = ParentRace.dict.get(gorace.get(1));
+
         ImageIcon backImage = new ImageIcon("src/img/wallp-2.png");
         backLabel = new JLabel((backImage));
         backLabel.setBounds(0,0,1440, 730);
         add(backLabel);
 
-        ImageIcon charImage3 = new ImageIcon(motor.getGambar());
-        charLabMotor = new JLabel(charImage3);
-        setCharXMotor(0);
-        charLabMotor.setBounds(0, motor.getY(), 107,50);
-        backLabel.add(charLabMotor);
+        ImageIcon charImage3 = new ImageIcon(kend1.getGambar());
+        charLab1 = new JLabel(charImage3);
+        setCharX1(0);
+        charLab1.setBounds(0, kend1.getY(), 107,50);
+        backLabel.add(charLab1);
 
-        ImageIcon charImage4 = new ImageIcon(mobil.getGambar());
-        charLabMobil = new JLabel(charImage4);
-        setCharXMobil(0);
-        charLabMobil.setBounds(0, mobil.getY(), 107,50);
-        backLabel.add(charLabMobil);
+        ImageIcon charImage4 = new ImageIcon(kend2.getGambar());
+        charLab2 = new JLabel(charImage4);
+        setCharX2(0);
+        charLab2.setBounds(0, kend2.getY(), 107,50);
+        backLabel.add(charLab2);
 
         setUpSpeed();
 
@@ -52,25 +58,21 @@ public class Race_2 extends JFrame{
         requestFocusInWindow();
         setVisible(true);
     }
-    public void setCharXBus(int charXBus) {
-        this.charXBus= charXBus;
+    public void setCharX1(int charXMotor) {
+        this.charX1= charXMotor;
     }
-    public void setCharX2Truk(int charXTruk) {this.charXTruk = charXTruk;}
-    public void setCharXMotor(int charXMotor) {
-        this.charXMotor = charXMotor;
-    }
-    public void setCharXMobil(int charXMobil) {
-        this.charXMobil = charXMobil;
+    public void setCharX2(int charXMobil) {
+        this.charX1 = charXMobil;
     }
 
     public void run(){
         Timer timer = new Timer(20, new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (charXBus<1440 || charXTruk<1440 || charXMotor<1440){
-                    charXMotor+=motor.getKec();
-                    charLabMotor.setBounds(charXMotor, motor.getY(), 107,50);
-                    charXMobil+=mobil.getKec();
-                    charLabMobil.setBounds(charXMobil, mobil.getY(), 107,50);
+                if (charX1<1440 || charX2<1440){
+                    charX1+=kend1.getKec();
+                    charLab1.setBounds(charX1, kend1.getY(), 107,50);
+                    charX2+=kend2.getKec();
+                    charLab2.setBounds(charX2, kend2.getY(), 107,50);
                 }
                 repaint();
             }
@@ -87,17 +89,17 @@ public class Race_2 extends JFrame{
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 switch (keyCode){
-                    case KeyEvent.VK_M:
-                        motor.upKec();
+                    case KeyEvent.VK_A:
+                        kend1.upKec();
                         break;
-                    case KeyEvent.VK_N:
-                        motor.downKec();
+                    case KeyEvent.VK_Q:
+                        kend1.downKec();
                         break;
-                    case KeyEvent.VK_P:
-                        mobil.upKec();
+                    case KeyEvent.VK_C:
+                        kend2.upKec();
                         break;
-                    case KeyEvent.VK_L:
-                        mobil.downKec();
+                    case KeyEvent.VK_X:
+                        kend2.downKec();
                         break;
                     default:
                         break;

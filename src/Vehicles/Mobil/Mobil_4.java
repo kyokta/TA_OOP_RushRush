@@ -5,7 +5,6 @@ public class Mobil_4 extends Mobil{
     }
     public void setGambar(){
         super.setGambar("src/img/8.png");
-        super.setKecepatanMaksimal(170);
         super.setKec(2);
     }
     public void downKec(){

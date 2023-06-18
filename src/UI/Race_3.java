@@ -1,10 +1,26 @@
 package UI;
 
+import Vehicles.Bus.Bus_1;
+import Vehicles.Bus.Bus_2;
+import Vehicles.Bus.Bus_3;
 import Vehicles.Bus.Bus_4;
 import Vehicles.Kendaraan;
+import Vehicles.Mobil.Mobil_1;
+import Vehicles.Mobil.Mobil_2;
 import Vehicles.Mobil.Mobil_3;
+import Vehicles.Mobil.Mobil_4;
+import Vehicles.Motor.Motor_1;
 import Vehicles.Motor.Motor_2;
+import Vehicles.Motor.Motor_3;
+import Vehicles.Motor.Motor_4;
 import Vehicles.Truk.Truk_1;
+import Vehicles.Truk.Truk_2;
+import Vehicles.Truk.Truk_3;
+import Vehicles.Truk.Truk_4;
+
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,15 +30,13 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class Race_3 extends JFrame{
-    private JLabel backLabel, charLabBus,charLabTruk, charLabMotor, charLabMobil;
-    private  int charXBus, charXTruk, charXMotor, charXMobil;
+    private JLabel backLabel, charLab1,charLab2, charLab3;
+    private  int charX1, charX2, charX3;
     private double kec=2;
-    private static ArrayList<Kendaraan> gorace = new ArrayList<>();
-    Bus_4 bus = new Bus_4();
-    Truk_1 truk = new Truk_1();
-    Motor_2 motor = new Motor_2();
-
+    public static ArrayList<Integer> gorace = new ArrayList<>();
+    private Kendaraan kend1, kend2, kend3;
     public Race_3(){
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1440, 700);
         setLocationRelativeTo(null);
@@ -33,24 +47,29 @@ public class Race_3 extends JFrame{
         backLabel.setBounds(0,0,1440, 730);
         add(backLabel);
 
-        ImageIcon charImage = new ImageIcon(bus.getGambar());
-        charLabBus = new JLabel(charImage);
-        setCharXBus(0);
-        charLabBus.setBounds(0, bus.getY(), 107,50);
-        backLabel.add(charLabBus);
+        ParentRace.addDict();
 
-        ImageIcon charImage2 = new ImageIcon(truk.getGambar());
-        charLabTruk = new JLabel(charImage2);
-        setCharX2Truk(0);
-        charLabTruk.setBounds(0, truk.getY(), 107,50);
-        backLabel.add(charLabTruk);
+        this.kend1 = ParentRace.dict.get(gorace.get(0));
+        this.kend2 = ParentRace.dict.get(gorace.get(1));
+        this.kend3 = ParentRace.dict.get(gorace.get(2));
 
-        ImageIcon charImage3 = new ImageIcon(motor.getGambar());
-        charLabMotor = new JLabel(charImage3);
-        setCharXMotor(0);
-        charLabMotor.setBounds(0, motor.getY(), 107,50);
-        backLabel.add(charLabMotor);
+        ImageIcon charImage = new ImageIcon(kend1.getGambar());
+        charLab1 = new JLabel(charImage);
+        setCharX1(0);
+        charLab1.setBounds(0, kend1.getY(), 107,50);
+        backLabel.add(charLab1);
 
+        ImageIcon charImage2 = new ImageIcon(kend2.getGambar());
+        charLab2 = new JLabel(charImage2);
+        setCharX2(0);
+        charLab2.setBounds(0, kend2.getY(), 107,50);
+        backLabel.add(charLab2);
+
+        ImageIcon charImage3 = new ImageIcon(kend3.getGambar());
+        charLab3 = new JLabel(charImage3);
+        setCharX3(0);
+        charLab3.setBounds(0, kend3.getY(), 107,50);
+        backLabel.add(charLab3);
 
         setUpSpeed();
 
@@ -58,27 +77,24 @@ public class Race_3 extends JFrame{
         requestFocusInWindow();
         setVisible(true);
     }
-    public void setCharXBus(int charXBus) {
-        this.charXBus= charXBus;
+    public void setCharX1(int charX1) {
+        this.charX1= charX1;
     }
-    public void setCharX2Truk(int charXTruk) {this.charXTruk = charXTruk;}
-    public void setCharXMotor(int charXMotor) {
-        this.charXMotor = charXMotor;
-    }
-    public void setCharXMobil(int charXMobil) {
-        this.charXMobil = charXMobil;
+    public void setCharX2(int charX2) {this.charX2 = charX2;}
+    public void setCharX3(int charX3) {
+        this.charX3 = charX3;
     }
 
     public void run(){
         Timer timer = new Timer(20, new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (charXBus<1440 || charXTruk<1440 || charXMotor<1440){
-                    charXBus+=bus.getKec();
-                    charLabBus.setBounds(charXBus, bus.getY(), 107,50);
-                    charXTruk+=truk.getKec();
-                    charLabTruk.setBounds(charXTruk, truk.getY(), 107,50);
-                    charXMotor+=motor.getKec();
-                    charLabMotor.setBounds(charXMotor, motor.getY(), 107,50);
+                if (charX1<1440 || charX2<1440 || charX3<1440){
+                    charX1+=kend1.getKec();
+                    charLab1.setBounds(charX1, kend1.getY(), 107,50);
+                    charX2+=kend2.getKec();
+                    charLab2.setBounds(charX2, kend2.getY(), 107,50);
+                    charX3+=kend3.getKec();
+                    charLab3.setBounds(charX3, kend3.getY(), 107,50);
                 }
                 repaint();
             }
@@ -96,22 +112,22 @@ public class Race_3 extends JFrame{
                 int keyCode = e.getKeyCode();
                 switch (keyCode){
                     case KeyEvent.VK_A:
-                        bus.upKec();
+                        kend1.upKec();
                         break;
                     case KeyEvent.VK_Q:
-                        bus.downKec();
+                        kend1.downKec();
                         break;
                     case KeyEvent.VK_C:
-                        truk.upKec();
+                        kend2.upKec();
                         break;
                     case KeyEvent.VK_X:
-                        truk.downKec();
+                        kend2.downKec();
                         break;
                     case KeyEvent.VK_M:
-                        motor.upKec();
+                        kend3.upKec();
                         break;
                     case KeyEvent.VK_N:
-                        motor.downKec();
+                        kend3.downKec();
                         break;
                     default:
                         break;
@@ -123,4 +139,5 @@ public class Race_3 extends JFrame{
         });
         run();
     }
+
 }
