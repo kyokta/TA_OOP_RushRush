@@ -50,7 +50,7 @@ public class LoginPage extends JFrame {
                 String pass_cur = pass.getPassword(username.getText());
                 if (pass_now.equals(pass_cur)) {
                     dispose();
-                    new player();
+                    new Instruction();
                 } else {
                     JOptionPane.showMessageDialog(null, "Login gagal! Silakan coba lagi.");
                 }
