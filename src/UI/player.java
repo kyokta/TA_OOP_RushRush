@@ -8,6 +8,9 @@ public class player extends JFrame {
     private JLabel backgroundImage;
     private JTextField playersum;
     private JButton button;
+    private JButton button2p;
+    private JButton button3p;
+    private JButton button4p;
 
     public player(){
         setTitle("PlayerSum Frame");
@@ -21,67 +24,57 @@ public class player extends JFrame {
         backgroundImage.setBounds(0, 0, 1920, 700);
         add(backgroundImage);
 
-        playersum = new JTextField();
-        playersum.setBounds(540, 290, 450, 40);
-        backgroundImage.add(playersum);
+        button2p = new JButton();
+        ImageIcon Icon2p = new ImageIcon("src/img/2P.png");
+        button2p.setIcon(Icon2p);
+        button2p.setBounds(400, 300, Icon2p.getIconWidth(), Icon2p.getIconHeight());
+        button2p.setOpaque(false);
+        button2p.setContentAreaFilled(false);
+        button2p.setBorderPainted(false);
+        backgroundImage.add(button2p);
 
-        button = new JButton();
-        ImageIcon buttonIcon = new ImageIcon("src/img/play-button.png");
-        button.setIcon(buttonIcon);
-        button.setBounds(650, 450, buttonIcon.getIconWidth(), buttonIcon.getIconHeight());
-        button.setOpaque(false);
-        button.setContentAreaFilled(false);
-        button.setBorderPainted(false);
-        backgroundImage.add(button);
+        button3p = new JButton();
+        ImageIcon Icon3p = new ImageIcon("src/img/3P.png");
+        button3p.setIcon(Icon3p);
+        button3p.setBounds(685, 300, Icon3p.getIconWidth(), Icon3p.getIconHeight());
+        button3p.setOpaque(false);
+        button3p.setContentAreaFilled(false);
+        button3p.setBorderPainted(false);
+        backgroundImage.add(button3p);
 
-//        String add = playersum.getText();
-        setUpSpeed();
-//        button.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (add=="2"){
-//                    dispose();
-//                    new Race_2();
-//                } else if (add=="3") {
-//                    dispose();
-//                    new Race_3();
-//                } else if (add=="4") {
-//                    dispose();
-//                    new Race_4();
-//                }
-//            }
-//        });
-        setVisible(true);
-    }
-    public void setUpSpeed(){
-        ActionListener btnSpeed = new ActionListener() {
+        button4p = new JButton();
+        ImageIcon Icon4p = new ImageIcon("src/img/4P.png");
+        button4p.setIcon(Icon4p);
+        button4p.setBounds(970, 300, Icon4p.getIconWidth(), Icon4p.getIconHeight());
+        button4p.setOpaque(false);
+        button4p.setContentAreaFilled(false);
+        button4p.setBorderPainted(false);
+        backgroundImage.add(button4p);
+
+        button2p.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String add = playersum.getText();
-                if (add.equals("2")){
-                    dispose();
-
-
-
-
-                    new Race_2();
-                } else if (add.equals("3")) {
-                    dispose();
-
-
-
-
-
-                    new Race_3();
-                } else if (add.equals("4")) {
-                    dispose();
-                    new Race_4();
-                } else{
-                    dispose();
-                    new Race();
-                }
+                dispose();
+                new Race_2();
             }
-        };
-        button.addActionListener(btnSpeed);
+        });
+
+        button3p.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new Race_3();
+            }
+        });
+
+        button4p.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new Race_4();
+            }
+        });
+
+        setVisible(true);
     }
 }
