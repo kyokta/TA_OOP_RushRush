@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 public class CarouselPage extends JFrame {
 
     private JLabel imageLabel;
-    private String[] imagePaths = {"src/Image/race1.png","src/Image/race2.png"};
+    private String[] imagePaths = {"src/img/img+card (4).png","src/img/img+card (5).png"};
     private int currentIndex = 0;
     private JPanel backgroundPanel;
     private JLabel label_Next;
@@ -41,19 +41,8 @@ public class CarouselPage extends JFrame {
         setContentPane(mainPanel);
 
         // Create a panel for the background image
-        backgroundPanel = new JPanel()
-//        {
-//           @Override
-//           protected void paintComponent(Graphics g) {
-//               super.paintComponent(g);
-//               ImageIcon backgroundIcon = new ImageIcon("D://Install/eclipse/Coba GUI/src/Tampil/png.png");
-//                Image background = backgroundIcon.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-//               g.drawImage(background, 0, 0, null);
-//            }
-//        }
-        ;
+        backgroundPanel = new JPanel();
         mainPanel.add(backgroundPanel, BorderLayout.CENTER);
-
 
 
         // Create a panel for the image slider
@@ -64,8 +53,8 @@ public class CarouselPage extends JFrame {
         JLabel BG_label = new JLabel();
 
         // Create a panel for the background image baru
-        ImageIcon imageIcon1 = new ImageIcon("src/img/race1440.png");
-        Image image2 = imageIcon1.getImage().getScaledInstance(1370, 661, Image.SCALE_SMOOTH);
+        ImageIcon imageIcon1 = new ImageIcon("src/img/vehicles-menu(1).png");
+        Image image2 = imageIcon1.getImage().getScaledInstance(1440, 700, Image.SCALE_SMOOTH);
         imageIcon1 = new ImageIcon(image2);
         BG_label.setIcon(imageIcon1);
         BG_label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -205,8 +194,8 @@ public class CarouselPage extends JFrame {
         });
 
         label_Next.setBounds(1140, 321, 150, 100);
-        ImageIcon imageIconNext = new ImageIcon("src/img/right-arrow.png");
-        Image imageNext = imageIconNext.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT);
+        ImageIcon imageIconNext = new ImageIcon("src/img/right.png");
+        Image imageNext = imageIconNext.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         imageIconNext = new ImageIcon(imageNext);
         label_Next.setIcon(imageIconNext);
         label_Next.setHorizontalAlignment(SwingConstants.CENTER);
@@ -234,8 +223,8 @@ public class CarouselPage extends JFrame {
             }
         });
         label_Prev.setBounds(169, 321, 150, 100);
-        ImageIcon imageIconPrev = new ImageIcon("src/img/left-arrow.png");
-        Image imagePrev = imageIconPrev.getImage().getScaledInstance(150, 100, Image.SCALE_DEFAULT);
+        ImageIcon imageIconPrev = new ImageIcon("src/img/left.png");
+        Image imagePrev = imageIconPrev.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         imageIconPrev = new ImageIcon(imagePrev);
         label_Prev.setIcon(imageIconPrev);
         label_Prev.setHorizontalAlignment(SwingConstants.CENTER);
@@ -244,7 +233,6 @@ public class CarouselPage extends JFrame {
 
 
     }
-
 
 
     private void updateImage() {
