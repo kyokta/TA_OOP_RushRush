@@ -32,7 +32,6 @@ public class ParentRace {
         dict.put(5, new Bus_1());
         dict.put(6, new Truk_2());
         dict.put(7, new Bus_2());
-
         dict.put(8, new Motor_3());
         dict.put(9, new Mobil_3());
         dict.put(10, new Motor_4());

@@ -9,6 +9,6 @@ public class Motor_1 extends Motor{
         super.setKec(-2);
     }
     public void upKec(){
-        super.setKec(2);
+        super.setKec(2.5);
     }
 }

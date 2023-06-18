@@ -11,6 +11,6 @@ public class Mobil_4 extends Mobil{
         super.setKec(-2);
     }
     public void upKec(){
-        super.setKec(3.5);
+        super.setKec(4.5);
     }
 }

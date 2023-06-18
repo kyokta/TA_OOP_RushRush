@@ -82,7 +82,7 @@ public class Race_2 extends JFrame{
     public void run(){
         Timer timer = new Timer(20, new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (charX1<1440 || charX2<1440){
+                if (charX1<1440 && charX2<1440){
                     charX1+=kend1.getKec();
                     charLab1.setBounds(charX1, kend1.getY(), 107,50);
                     stop(charLab1, charX1, kend1);
@@ -143,7 +143,7 @@ public class Race_2 extends JFrame{
     }
 
     public void run2() {
-        Timer timer2 = new Timer(20, new ActionListener() {
+        Timer timer2 = new Timer(10, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int tb1 = 5, tb2 = 8, tb3 = 7;
                 int initialY1 = 0, initialY2 = 0, initialY3 = 0;
@@ -195,4 +195,5 @@ public void stop(JLabel gambar, int y, Kendaraan obj){
             gambar.setVisible(false);
         };
 }
+
 }

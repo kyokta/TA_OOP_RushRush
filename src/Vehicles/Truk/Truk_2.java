@@ -11,6 +11,6 @@ public class Truk_2 extends Truk {
         super.setKec(-2);
     }
     public void upKec(){
-        super.setKec(2);
+        super.setKec(3);
     }
 }

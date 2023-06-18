@@ -9,6 +9,6 @@ public class Bus_3 extends Bus{
         super.setKec(-2);
     }
     public void upKec(){
-        super.setKec(5);
+        super.setKec(4);
     }
 }
