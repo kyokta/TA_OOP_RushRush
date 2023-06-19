@@ -1,8 +1,6 @@
-package UI;
-
+package UI.Race;
 
 import Vehicles.Kendaraan;
-
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -90,6 +88,16 @@ public class Race_2 extends JFrame{
                     charLab2.setBounds(charX2, kend2.getY(), 107,50);
                     stop(charLab2, charX2, kend2);
                 }
+                if (charX1==1440){
+                    kend2.stop();
+                    kend1.stop();
+                    gorace.clear();
+                }
+                if (charX2==1440){
+                    kend1.stop();
+                    kend2.stop();
+                    gorace.clear();
+                }
                 repaint();
             }
         });
@@ -152,13 +160,15 @@ public class Race_2 extends JFrame{
                 Race_2.y2 += tb2;
                 Race_2.y3 += tb3;
 
-                // Reset y coordinates if they exceed the specified range
-                if (Race_2.y1 > maxY)
-                    Race_2.y1 = initialY1;
-                if (Race_2.y2 > maxY)
-                    Race_2.y2 = initialY2;
-                if (Race_2.y3 > maxY)
-                    Race_2.y3 = initialY3;
+                // stop looping
+                if (charX1 < 1440 || charX2 < 1440) {
+                    if (Race_2.y1 > maxY)
+                        Race_2.y1 = initialY1;
+                    if (Race_2.y2 > maxY)
+                        Race_2.y2 = initialY2;
+                    if (Race_2.y3 > maxY)
+                        Race_2.y3 = initialY3;
+                }
 
                 meteor1.setBounds(x1, Race_2.y1, 80, 160);
                 meteor2.setBounds(x2, Race_2.y2, 80, 160);
@@ -189,11 +199,13 @@ public void stop(JLabel gambar, int y, Kendaraan obj){
         int meteor3_y0 = Race_2.y1-20;
         if (y<meteor1_x && y>meteror1_x_ && obj.getY()<meteor1_y00 && obj.getY()>meteor1_y0){
             gambar.setVisible(false);
+            obj.stop();
         } else if (y<meteor2_x && y>meteror2_x_ && obj.getY()<meteor2_y00 && obj.getY()>meteor2_y0){
             gambar.setVisible(false);
+            obj.stop();
         } else if (y<meteor3_x && y>meteror3_x_ && obj.getY()<meteor3_y00 && obj.getY()>meteor3_y0){
             gambar.setVisible(false);
+            obj.stop();
         };
-}
-
+    }
 }

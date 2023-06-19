@@ -1,4 +1,4 @@
-package UI;
+package UI.Carousel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class Car2 extends JFrame {
+public class CarouselPage extends JFrame {
 
     private JLabel imageLabel;
     private String[] imagePaths = {"src/img/img+card (4).png","src/img/img+card (5).png"};
@@ -28,8 +28,8 @@ public class Car2 extends JFrame {
     private JButton Pilih7;
     private JButton Pilih8;
 
-    private JButton button;
-    public Car2() {
+
+    public CarouselPage() {
         setTitle("Image Slider");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1440, 700);
@@ -42,21 +42,6 @@ public class Car2 extends JFrame {
         backgroundPanel = new JPanel();
         mainPanel.add(backgroundPanel, BorderLayout.CENTER);
 
-        button = new JButton();
-        ImageIcon buttonIcon = new ImageIcon("src/img/play-button.png");
-        button.setIcon(buttonIcon);
-        button.setBounds(600, 550, buttonIcon.getIconWidth(), buttonIcon.getIconHeight());
-        button.setOpaque(false);
-        button.setContentAreaFilled(false);
-        button.setBorderPainted(false);
-        backgroundPanel.add(button);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new Race_2();
-            }
-        });
 
         // Create a panel for the image slider
         JPanel imagePanel = new JPanel();
@@ -91,8 +76,7 @@ public class Car2 extends JFrame {
         Pilih1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-8;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -104,8 +88,8 @@ public class Car2 extends JFrame {
         Pilih2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-7;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
+
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -117,8 +101,7 @@ public class Car2 extends JFrame {
         Pilih3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-6;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -129,8 +112,7 @@ public class Car2 extends JFrame {
         Pilih4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-5;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -142,8 +124,7 @@ public class Car2 extends JFrame {
         Pilih5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-4;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -154,8 +135,7 @@ public class Car2 extends JFrame {
         Pilih6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-3;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -166,8 +146,7 @@ public class Car2 extends JFrame {
         Pilih7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-2;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
 
@@ -179,8 +158,7 @@ public class Car2 extends JFrame {
         Pilih8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-1;//Baru
-//                System.out.println(indexTombolTekan);//Baru
-                Race_2.gorace.add(indexTombolTekan);
+                System.out.println(indexTombolTekan);//Baru
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -251,6 +229,7 @@ public class Car2 extends JFrame {
         label_Prev.setVerticalAlignment(SwingConstants.CENTER);
         BG_label.add(label_Prev);
 
+
     }
 
 
@@ -263,25 +242,13 @@ public class Car2 extends JFrame {
         imageLabel.setVerticalAlignment(SwingConstants.CENTER);
     }
 
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//
-//
-//            @Override
-//            public void run() {
-//                Car2 imageSlider = new Car2();
-//                imageSlider.setVisible(true);
-//            }
-//        });
-//    }
-
-    public void start() {
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
 
 
             @Override
             public void run() {
-                Car2 imageSlider = new Car2();
+                CarouselPage imageSlider = new CarouselPage();
                 imageSlider.setVisible(true);
             }
         });

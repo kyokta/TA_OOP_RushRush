@@ -1,14 +1,14 @@
 package UI;
+import UI.Carousel.Car2;
+import UI.Carousel.Car3;
+import UI.Carousel.Car4;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
 public class player extends JFrame {
     private JLabel backgroundImage;
-    private JTextField playersum;
-    private JButton button;
     private JButton button2p;
     private JButton button3p;
     private JButton button4p;

@@ -16,4 +16,5 @@ public interface Kendaraan {
     void setKec(double kec);
     void downKec();
     void upKec();
+    void stop();
 }

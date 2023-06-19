@@ -1,4 +1,4 @@
-package UI;
+package UI.Race;
 
 import Vehicles.Bus.Bus_1;
 import Vehicles.Bus.Bus_2;

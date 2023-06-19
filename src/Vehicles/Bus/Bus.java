@@ -44,4 +44,9 @@ public class Bus extends JFrame implements Kendaraan {
     public void upKec(){
         setKec(2);
     }
+
+    @Override
+    public void stop() {
+        setKec(0);
+    }
 }

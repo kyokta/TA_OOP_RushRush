@@ -1,4 +1,6 @@
-package UI;
+package UI.Carousel;
+
+import UI.Race.Race_4;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,21 +16,11 @@ public class Car4 extends JFrame {
     private String[] imagePaths = {"src/img/img+card (4).png","src/img/img+card (5).png"};
     private int currentIndex = 0;
     private JPanel backgroundPanel;
-    private JLabel label_Next;
-    private JLabel label_Prev;
+    private JLabel label_Next, label_Prev;
     private JButton btnNewButton;
     private int indexTombolBantu=8; //Baru
     private int indexTombolTekan=0;//Baru
-    private JButton Pilih1;
-    private JButton Pilih2;
-    private JButton Pilih3;
-    private JButton Pilih4;
-    private JButton Pilih5;
-    private JButton Pilih6;
-    private JButton Pilih7;
-    private JButton Pilih8;
-
-    private JButton button;
+    private JButton Pilih1, Pilih2, Pilih3, Pilih4, Pilih5, Pilih6, Pilih7, Pilih8, button;
     public Car4() {
         setTitle("Image Slider");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,7 +66,6 @@ public class Car4 extends JFrame {
         BG_label.setVerticalAlignment(SwingConstants.CENTER);
         BG_label.setBounds(0, 0, 1370, 661);
         backgroundPanel.add(BG_label);
-
 
         //tampil awal
         ImageIcon imageIcon = new ImageIcon(imagePaths[0]);
@@ -187,10 +178,6 @@ public class Car4 extends JFrame {
         Pilih8.setBounds(500, 325, 100, 40);
         imageLabel.add(Pilih8);
 
-
-        //---
-
-
         imagePanel.add(imageLabel);
         BG_label.add(imagePanel);
         label_Next = new JLabel();
@@ -250,7 +237,6 @@ public class Car4 extends JFrame {
         label_Prev.setHorizontalAlignment(SwingConstants.CENTER);
         label_Prev.setVerticalAlignment(SwingConstants.CENTER);
         BG_label.add(label_Prev);
-
     }
 
 
@@ -265,7 +251,6 @@ public class Car4 extends JFrame {
 
     public void start() {
         SwingUtilities.invokeLater(new Runnable() {
-
             @Override
             public void run() {
                 Car4 imageSlider = new Car4();

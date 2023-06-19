@@ -1,4 +1,6 @@
-package UI;
+package UI.Carousel;
+
+import UI.Race.Race_3;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,28 +9,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
 public class Car3 extends JFrame {
 
     private JLabel imageLabel;
     private String[] imagePaths = {"src/img/img+card (4).png","src/img/img+card (5).png"};
     private int currentIndex = 0;
     private JPanel backgroundPanel;
-    private JLabel label_Next;
-    private JLabel label_Prev;
-    private JButton btnNewButton;
+    private JLabel label_Next, label_Prev;
     private int indexTombolBantu=8; //Baru
     private int indexTombolTekan=0;//Baru
-    private JButton Pilih1;
-    private JButton Pilih2;
-    private JButton Pilih3;
-    private JButton Pilih4;
-    private JButton Pilih5;
-    private JButton Pilih6;
-    private JButton Pilih7;
-    private JButton Pilih8;
+    private JButton Pilih1, Pilih2, Pilih3, Pilih4, Pilih5, Pilih6, Pilih7, Pilih8, button;
 
-    private JButton button;
     public Car3() {
         setTitle("Image Slider");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,11 +78,10 @@ public class Car3 extends JFrame {
         //----
 
         //Tombol Dalam label-------------
-        Pilih1 = new JButton("Pilih1");
+        Pilih1 = new JButton("Pilih");
         Pilih1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-8;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
@@ -100,11 +90,10 @@ public class Car3 extends JFrame {
         imageLabel.add(Pilih1);
 
 
-        Pilih2 = new JButton("Pilih2");
+        Pilih2 = new JButton("Pilih");
         Pilih2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-7;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
@@ -113,10 +102,9 @@ public class Car3 extends JFrame {
         imageLabel.add(Pilih2);
 
 
-        Pilih3 = new JButton("Pilih3");
+        Pilih3 = new JButton("Pilih");
         Pilih3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                indexTombolTekan=indexTombolBantu-6;//Baru
                 System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
@@ -125,11 +113,10 @@ public class Car3 extends JFrame {
         Pilih3.setBounds(350, 144, 100, 40);
         imageLabel.add(Pilih3);
 
-        Pilih4 = new JButton("Pilih4");
+        Pilih4 = new JButton("Pilih");
         Pilih4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-5;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
@@ -138,11 +125,10 @@ public class Car3 extends JFrame {
         imageLabel.add(Pilih4);
 
 
-        Pilih5 = new JButton("Pilih5");
+        Pilih5 = new JButton("Pilih");
         Pilih5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-4;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
@@ -150,11 +136,10 @@ public class Car3 extends JFrame {
         Pilih5.setBounds(50, 325, 100, 40);
         imageLabel.add(Pilih5);
 
-        Pilih6 = new JButton("Pilih6");
+        Pilih6 = new JButton("Pilih");
         Pilih6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-3;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
@@ -162,11 +147,10 @@ public class Car3 extends JFrame {
         Pilih6.setBounds(200, 325, 100, 40);
         imageLabel.add(Pilih6);
 
-        Pilih7 = new JButton("Pilih7");
+        Pilih7 = new JButton("Pilih");
         Pilih7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-2;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
@@ -175,21 +159,16 @@ public class Car3 extends JFrame {
         Pilih7.setBounds(350, 325, 100, 40);
         imageLabel.add(Pilih7);
 
-        Pilih8 = new JButton("Pilih8");
+        Pilih8 = new JButton("Pilih");
         Pilih8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 indexTombolTekan=indexTombolBantu-1;//Baru
-                System.out.println(indexTombolTekan);//Baru
                 Race_3.gorace.add(indexTombolTekan);
             }
         });
         imagePanel.setLayout(new GridLayout(0, 1, 0, 0));
         Pilih8.setBounds(500, 325, 100, 40);
         imageLabel.add(Pilih8);
-
-
-        //---
-
 
         imagePanel.add(imageLabel);
         BG_label.add(imagePanel);
@@ -250,7 +229,6 @@ public class Car3 extends JFrame {
         label_Prev.setHorizontalAlignment(SwingConstants.CENTER);
         label_Prev.setVerticalAlignment(SwingConstants.CENTER);
         BG_label.add(label_Prev);
-
     }
 
     private void updateImage() {
@@ -264,8 +242,6 @@ public class Car3 extends JFrame {
 
     public void start() {
         SwingUtilities.invokeLater(new Runnable() {
-
-
             @Override
             public void run() {
                 Car3 imageSlider = new Car3();

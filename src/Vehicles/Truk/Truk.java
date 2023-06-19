@@ -39,4 +39,9 @@ public class Truk extends JFrame implements Kendaraan {
         setKec(2);
     }
 
+    @Override
+    public void stop() {
+        setKec(0);
+    }
+
 }
