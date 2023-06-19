@@ -209,10 +209,13 @@ public class Race_4 extends JFrame{
         int meteor3_y0 = Race_2.y1 - 20;
         if (y < meteor1_x && y > meteror1_x_ && obj.getY() < meteor1_y00 && obj.getY() > meteor1_y0) {
             gambar.setVisible(false);
+            obj.stop();
         } else if (y < meteor2_x && y > meteror2_x_ && obj.getY() < meteor2_y00 && obj.getY() > meteor2_y0) {
             gambar.setVisible(false);
+            obj.stop();
         } else if (y < meteor3_x && y > meteror3_x_ && obj.getY() < meteor3_y00 && obj.getY() > meteor3_y0) {
             gambar.setVisible(false);
+            obj.stop();
         }
         ;
     }

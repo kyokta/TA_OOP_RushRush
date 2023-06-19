@@ -1,7 +1,7 @@
 package UI.Race;
 
 import Vehicles.Kendaraan;
-
+import Winner.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,9 +15,6 @@ public class Race_2 extends JFrame{
     public static ArrayList<Integer> gorace = new ArrayList<>();
     private Kendaraan kend1;
     private Kendaraan kend2;
-
-    private Boolean status_kend1 = true;
-    private Boolean status_kend2 = true;
 
     public static int y1,y2,y3;
     private int x1=400,x2=800,x3=1200;
@@ -62,13 +59,6 @@ public class Race_2 extends JFrame{
         setVisible(true);
     }
 
-    public void setStatus_kend1(Boolean status_kend1) {
-        this.status_kend1 = status_kend1;
-    }
-
-    public void setStatus_kend2(Boolean status_kend2) {
-        this.status_kend2 = status_kend2;
-    }
 
     public void setCharX1(int charXMotor) {
         this.charX1= charXMotor;
@@ -87,16 +77,6 @@ public class Race_2 extends JFrame{
                     charX2+=kend2.getKec();
                     charLab2.setBounds(charX2, kend2.getY(), 107,50);
                     stop(charLab2, charX2, kend2);
-                }
-                if (charX1==1440){
-                    kend2.stop();
-                    kend1.stop();
-                    gorace.clear();
-                }
-                if (charX2==1440){
-                    kend1.stop();
-                    kend2.stop();
-                    gorace.clear();
                 }
                 repaint();
             }
@@ -149,7 +129,6 @@ public class Race_2 extends JFrame{
         meteor3.setBounds(1200, 0, 80, 160);
         backLabel.add(meteor3);
     }
-
     public void run2() {
         Timer timer2 = new Timer(10, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
